@@ -1,0 +1,21 @@
+# R files
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+# Temporary files
+*.tmp
+*.log
+*.aux
+*.out
+
+# Large data files (don't commit raw data)
+data/raw/
+skcm_tcga_pan_can_atlas_2018/
+skcm_tcga_pan_can_atlas_2018.tar.gz
+tcga_skcm_extracted/
+
+# System files
+.DS_Store
+Thumbs.db
