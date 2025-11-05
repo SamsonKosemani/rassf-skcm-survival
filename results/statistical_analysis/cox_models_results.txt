@@ -1,0 +1,52 @@
+=== UNIVARIATE COX MODEL ===
+Call:
+coxph(formula = Surv(OS_MONTHS, OS_STATUS_NUM) ~ RASSF_signature, 
+    data = rassf_signature_data)
+
+  n= 428, number of events= 212 
+
+                    coef exp(coef) se(coef)  z Pr(>|z|)  
+RASSF_signature -0.04101   0.95982  0.02051 -2   0.0455 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+                exp(coef) exp(-coef) lower .95 upper .95
+RASSF_signature    0.9598      1.042     0.922    0.9992
+
+Concordance= 0.576  (se = 0.023 )
+Likelihood ratio test= 4.23  on 1 df,   p=0.04
+Wald test            = 4  on 1 df,   p=0.05
+Score (logrank) test = 4  on 1 df,   p=0.05
+
+
+=== MULTIVARIATE COX MODEL ===
+Call:
+coxph(formula = Surv(OS_MONTHS, OS_STATUS_NUM) ~ RASSF_signature + 
+    AGE + SEX + STAGE_SIMPLIFIED, data = rassf_signature_data)
+
+  n= 393, number of events= 193 
+   (35 observations deleted due to missingness)
+
+                         coef exp(coef)  se(coef)      z Pr(>|z|)    
+RASSF_signature     -0.062763  0.939166  0.021810 -2.878 0.004005 ** 
+AGE                  0.022102  1.022348  0.004983  4.435 9.19e-06 ***
+SEXMale              0.117090  1.124221  0.156048  0.750 0.453047    
+STAGE_SIMPLIFIEDII   0.337992  1.402129  0.209913  1.610 0.107365    
+STAGE_SIMPLIFIEDIII  0.650675  1.916833  0.196947  3.304 0.000954 ***
+STAGE_SIMPLIFIEDIV   1.298992  3.665601  0.346743  3.746 0.000179 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+                    exp(coef) exp(-coef) lower .95 upper .95
+RASSF_signature        0.9392     1.0648    0.8999    0.9802
+AGE                    1.0223     0.9781    1.0124    1.0324
+SEXMale                1.1242     0.8895    0.8280    1.5264
+STAGE_SIMPLIFIEDII     1.4021     0.7132    0.9292    2.1158
+STAGE_SIMPLIFIEDIII    1.9168     0.5217    1.3030    2.8198
+STAGE_SIMPLIFIEDIV     3.6656     0.2728    1.8578    7.2326
+
+Concordance= 0.672  (se = 0.022 )
+Likelihood ratio test= 50.16  on 6 df,   p=4e-09
+Wald test            = 49.26  on 6 df,   p=7e-09
+Score (logrank) test = 50.57  on 6 df,   p=4e-09
+
